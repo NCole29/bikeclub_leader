@@ -1,0 +1,66 @@
+# Routes for club_leader
+entity.club_leader.canonical:
+  path: '/admin/club_leader/{club_leader}'
+  defaults:
+    # Calls the view controller defined in the annotation of the contact entity.
+    _entity_view: 'club_leader'
+    _title: 'Club leaders list'
+  requirements:
+    # Calls the access controller of the entity, passing in the suffix ('view')
+    # as the $operation parameter to checkAccess().
+    _permission: 'view club_leader entity'
+
+# Override the default 'list' builder.
+entity.club_leader.collection:
+  path: '/admin/club_leader/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the contact entity.
+    _entity_list: 'club_leader'
+    _title: 'Club leaders list'
+  requirements:
+    _permission: 'view club_leader entity'
+
+bikeclub_leader.leader_add:
+  path: '/admin/club_leader/add'
+  defaults:
+    _entity_form: club_leader.default
+    _title: 'Add leader'
+  requirements:
+    _permission: 'add leader entity'
+
+entity.club_leader.edit_form:
+  path: '/admin/club_leader/{club_leader}/edit'
+  defaults:
+    _entity_form: club_leader.default
+    _title: 'Edit club leader'
+  requirements:
+    _permission: 'edit club_leader entity'
+
+entity.club_leader.delete_form:
+  path: '/admin/club_leader/{club_leader}/delete'
+  defaults:
+    _entity_form: club_leader.delete
+    _title: 'Delete club leader'
+  requirements:
+    _permission: 'delete club_leader entity'
+
+bikeclub_leader.leader_settings:
+  path: '/admin/structure/club_leader'
+  defaults:
+    _form: '\Drupal\bikeclub_leader\Form\ClubLeaderSettingsForm'
+    _title: 'Club leader settings'
+  requirements:
+    _permission: 'administer club_leader entity'
+
+# Configuration settings
+bikeclub_leader.eligible_role:
+  path: '/admin/config/club/eligible-leader'
+  defaults:
+    _form: '\Drupal\bikeclub_leader\Form\EligibleLeaderForm'
+    _title: 'Eligible Club Leaders Form'
+  requirements:
+    _permission: 'administer eligible_leader_form'
+  options:
+    _admin_route: TRUE
+
+

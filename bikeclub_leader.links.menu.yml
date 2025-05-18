@@ -1,0 +1,24 @@
+# Define menu links for club_leader entity.
+
+# Club leader settings link.
+bikeclub_leader.admin:
+  title: 'Club leader field settings'
+  description: 'Configure club leader entity'
+  route_name:  bikeclub_leader.leader_settings
+  parent: system.admin_structure
+
+# Select roles (e.g., member) required for selection as Club leaders.
+bikeclub_leader.eligible_leader:
+  title: 'Eligible Club Leader settings'
+  description: 'Only persons with the selected role will eligible for selection when adding Club Leaders'
+  route_name: bikeclub_leader.eligible_role
+  parent: user.admin_index
+  menu_name: admin
+  enabled: 1
+
+# View replaces default entity.club_leader.collection.
+bikeclub_leader.leaders:
+  title: 'Club leader list'
+  description: 'Club leader admin list'
+  route_name: view.club_leaders.edit
+  parent: entity.user.collection

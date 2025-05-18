@@ -1,0 +1,4 @@
+services:
+  Drupal\bikeclub_leader\Hook\FormHooks:
+    class: Drupal\bikeclub_leader\Hook\FormHooks
+    autowire: true
